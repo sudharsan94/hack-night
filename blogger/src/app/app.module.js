@@ -9,17 +9,19 @@ var platform_browser_1 = require('@angular/platform-browser');
 var core_1 = require('@angular/core');
 var forms_1 = require('@angular/forms');
 var http_1 = require('@angular/http');
-var router_1 = require('@angular/router');
+var forms_2 = require('@angular/forms');
 var app_component_1 = require('./app.component');
-var home_component_1 = require('./components/home/home.component');
-var appRoutes = [
+var feeds_component_1 = require('./feeds/feeds.component');
+var router_1 = require('@angular/router');
+var create_blog_component_1 = require('./create-blog/create-blog.component');
+var routesArray = [
     {
-        path: 'home',
-        component: home_component_1.HomeComponent
+        path: "create",
+        component: feeds_component_1.FeedsComponent
     },
     {
         path: '**',
-        component: home_component_1.HomeComponent
+        component: feeds_component_1.FeedsComponent
     }
 ];
 var AppModule = (function () {
@@ -29,13 +31,15 @@ var AppModule = (function () {
         core_1.NgModule({
             declarations: [
                 app_component_1.AppComponent,
-                home_component_1.HomeComponent
+                feeds_component_1.FeedsComponent,
+                create_blog_component_1.CreateBlogComponent
             ],
             imports: [
                 platform_browser_1.BrowserModule,
                 forms_1.FormsModule,
                 http_1.HttpModule,
-                router_1.RouterModule.forRoot(appRoutes)
+                router_1.RouterModule.forRoot(routesArray),
+                forms_2.ReactiveFormsModule
             ],
             providers: [],
             bootstrap: [app_component_1.AppComponent]

@@ -2,34 +2,36 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
-import { RouterModule,Routes } from '@angular/router';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 import { AppComponent } from './app.component';
-import { HomeComponent } from './components/home/home.component';
+import { FeedsComponent } from './feeds/feeds.component';
+import { RouterModule,Routes } from '@angular/router';
+import { CreateBlogComponent } from './create-blog/create-blog.component';
 
-
-
-const appRoutes: Routes = [
+const routesArray : Routes = [
   {
-    path : 'home',
-    component : HomeComponent
+    path : "create",
+    component : FeedsComponent,
   },
   {
     path : '**',
-    component : HomeComponent
+    component : FeedsComponent
   }
 ];
 
 @NgModule({
   declarations: [
     AppComponent,
-    HomeComponent
+    FeedsComponent,
+    CreateBlogComponent
   ],
   imports: [
     BrowserModule,
     FormsModule,
     HttpModule,
-    RouterModule.forRoot(appRoutes)
+    RouterModule.forRoot(routesArray),
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
